@@ -1,0 +1,18 @@
+{
+  "name": "borme-scraper",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.2.1",
+    "puppeteer": "^1.2.0",
+    "write-csv": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1"
+  },
+  "scripts": {
+    "scrape-names": "babel-node src/nombres.js"
+  }
+}
