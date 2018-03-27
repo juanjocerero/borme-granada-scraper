@@ -52,7 +52,9 @@ const scrapeChunk = async (chunk, index) => {
         const tab = await browser.newPage();
         await tab.goto(url);
         await tab.waitForSelector('table.ranking_einf');
+        // TODO: sacar también enlace a la url y crear un objeto
         const currentPageElements = await tab.evaluate(() => Array.from(document.querySelectorAll('table.ranking_einf td.textleft a')).map(el => el.innerText));
+        // TODO: abrir los objetos y scrapear el sector cnae
         chunkElements.push.apply(chunkElements, currentPageElements);
         await tab.close();
       } catch (error) { continue; }
@@ -60,7 +62,7 @@ const scrapeChunk = async (chunk, index) => {
 
     await browser.close();
     return chunkElements;
-    
+
   } catch (error) {
     await browser.close();
     throw new Error(error);
